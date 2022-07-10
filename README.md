@@ -1,2 +1,2 @@
 # archura-post-filter-example
-Archura Post Filter Example
+Archura Platform Post Filter example.
