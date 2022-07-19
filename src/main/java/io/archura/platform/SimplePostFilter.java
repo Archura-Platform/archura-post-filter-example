@@ -15,14 +15,14 @@ public class SimplePostFilter implements BiConsumer<ServerRequest, ServerRespons
 
     @Override
     public void accept(ServerRequest serverRequest, ServerResponse serverResponse) {
-        log("SimplePostFilter serverRequest = " + serverRequest + " serverResponse = " + serverResponse);
+        log("serverRequest = " + serverRequest + " serverResponse = " + serverResponse);
         final HttpHeaders headers = serverResponse.headers();
         headers.entrySet().forEach(stringListEntry -> log("stringListEntry = " + stringListEntry));
     }
 
     @Override
     public void setConfiguration(Map<String, Object> configuration) {
-        log("SimplePostFilter configuration = " + configuration);
+        log("configuration = " + configuration);
     }
 
     private void log(final String log) {
