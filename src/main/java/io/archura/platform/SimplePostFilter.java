@@ -9,21 +9,22 @@ import org.springframework.web.servlet.function.ServerRequest;
 import org.springframework.web.servlet.function.ServerResponse;
 
 import java.util.Map;
-import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 
 @Component
-public class SimplePostFilter implements BiConsumer<ServerRequest, ServerResponse>, Configurable {
+public class SimplePostFilter implements BiFunction<ServerRequest, ServerResponse, ServerResponse>, Configurable {
 
     private Map<String, Object> configuration;
 
     @Override
-    public void accept(ServerRequest request, ServerResponse response) {
+    public ServerResponse apply(ServerRequest request, ServerResponse response) {
         final Context context = (Context) request.attributes().get(Context.class.getSimpleName());
         final Logger logger = context.getLogger();
 
         logger.info("request = " + request + " response = " + response + " configuration = " + configuration);
         final HttpHeaders headers = response.headers();
         headers.entrySet().forEach(stringListEntry -> logger.info("stringListEntry = " + stringListEntry));
+        return response;
     }
 
     @Override
