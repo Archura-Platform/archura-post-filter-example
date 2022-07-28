@@ -12,6 +12,7 @@
         <java.version>17</java.version>
         <compiler.source>17</compiler.source>
         <compiler.target>17</compiler.target>
+        <archura-platform-api.version>0.0.1</archura-platform-api.version>
     </properties>
 
     <dependencies>
@@ -19,6 +20,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.7.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.archura</groupId>
+            <artifactId>archura-platform-api</artifactId>
+            <version>${archura-platform-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -59,10 +66,10 @@
                             <transformers>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>io.archura.platform.SimplePostFilter</mainClass>
+                                    <mainClass>io.archura.platform.imperativeshell.post.filter.SimplePostFilter</mainClass>
                                 </transformer>
                             </transformers>
-                            <finalName>io.archura.platform.SimplePostFilter-0.0.1</finalName>
+                            <finalName>io.archura.platform.imperativeshell.post.filter.SimplePostFilter-0.0.1</finalName>
                         </configuration>
                     </execution>
                 </executions>

@@ -1,8 +1,8 @@
-package io.archura.platform;
+package io.archura.platform.imperativeshell.post.filter;
 
-import io.archura.platform.context.Context;
-import io.archura.platform.function.Configurable;
-import io.archura.platform.logging.Logger;
+import io.archura.platform.api.context.Context;
+import io.archura.platform.api.logger.Logger;
+import io.archura.platform.api.type.Configurable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.function.ServerRequest;
