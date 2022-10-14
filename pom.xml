@@ -13,19 +13,12 @@
         <compiler.source>17</compiler.source>
         <compiler.target>17</compiler.target>
         <archura-platform-api.version>0.0.4</archura-platform-api.version>
-        <jackson-databind.version>2.13.4</jackson-databind.version>
     </properties>
 
     <dependencies>
         <!-- PACK WITH -->
 
         <!-- PROVIDED -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-databind.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>io.archura</groupId>
             <artifactId>archura-platform-api</artifactId>

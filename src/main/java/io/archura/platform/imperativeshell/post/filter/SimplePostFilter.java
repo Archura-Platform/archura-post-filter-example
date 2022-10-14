@@ -8,22 +8,21 @@ import io.archura.platform.api.type.Configurable;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiFunction;
+import java.util.function.BiConsumer;
 
 
-public class SimplePostFilter implements BiFunction<HttpServerRequest, HttpServerResponse, HttpServerResponse>, Configurable {
+public class SimplePostFilter implements BiConsumer<HttpServerRequest, HttpServerResponse>, Configurable {
 
     private Map<String, Object> configuration;
 
     @Override
-    public HttpServerResponse apply(HttpServerRequest request, HttpServerResponse response) {
+    public void accept(HttpServerRequest request, HttpServerResponse response) {
         final Context context = (Context) request.getAttributes().get(Context.class.getSimpleName());
         final Logger logger = context.getLogger();
 
         logger.info("request = " + request + " response = " + response + " configuration = " + configuration);
         Map<String, List<String>> headers = response.getHeaders();
-        headers.entrySet().forEach(stringListEntry -> logger.info("stringListEntry = " + stringListEntry));
-        return response;
+        headers.entrySet().forEach(stringListEntry -> logger.info("header entry = " + stringListEntry));
     }
 
     @Override
